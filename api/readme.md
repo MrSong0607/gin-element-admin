@@ -8,7 +8,7 @@ CREATE SCHEMA `ginadmin` DEFAULT CHARACTER SET utf8mb4 ;
 go run main.go -m
 ```
 
-插入管理员数据
+插入管理员数据,默认账号密码都是`admin`,密码使用HmacSHA256加密，密钥在`service.base.go`的`SystemSecretKey`中，建议修改为自己的密钥(Hex格式，长度32字符)
 ```sql
 INSERT INTO account (id,acct, passwd, otp_secret, account_status, create_at , create_by) VALUES (1,'admin', '9c427838783fc42c5747f9d741c5df2ecd23971feb2075accbd0980efc972a32', '', 'NORMAL', 1662131046 , 1);
 INSERT INTO unicom.`user` (id,alias,user_type,update_at,update_by) VALUES (1,'gjryhxt','admin',0,0);

@@ -29,7 +29,7 @@ func (f User) RouterRegist(r *gin.Engine) {
 	g := r.Group("user")
 	{
 		g.POST("info", ApiWrap(f.Info))
-    }
+	}
 }
 
 func init() {
