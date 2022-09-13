@@ -1,0 +1,6 @@
+debug: true
+port: :8080
+file_srv_dir: ./files
+file_srv_base_url: http://127.0.0.1:8081/files
+dbstr: root:localdbpasswd@tcp(127.0.0.1:3306)/ginadmin?charset=utf8mb4&parseTime=True&loc=Local&writeTimeout=0
+redis_str: 127.0.0.1:6379

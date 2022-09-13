@@ -1,0 +1,1 @@
+export const filePostUrl = import.meta.env.VITE_APP_BASE_API + '/file/upload'
