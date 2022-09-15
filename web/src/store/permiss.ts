@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Login, SessionInfo, Info, } from '../api/auth';
-import { UserType } from '../api/base'
+import { UserType } from '../dto/base'
 
 declare type sessionStore = { info: SessionInfo | null, sessionKey: string | null }
 

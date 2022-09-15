@@ -2,7 +2,7 @@
 import { routes } from '../../router/index';
 import { usePermissStore } from '../../store/permiss';
 import { build_path } from '../../utils/index';
-import {UserType} from '../../api/base'
+import { UserType } from '../../dto/base'
 
 const permiss = usePermissStore()
 const props = defineProps<{ collapse: boolean }>()
@@ -59,7 +59,7 @@ const activeIndex = ref(useRoute().fullPath)
 <template>
     <el-menu class="menu" :router="true" :default-active="activeIndex" :val="props.collapse" :collapse="props.collapse"
         mode="vertical" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff">
-        <div v-for="(val) in menus">
+        <template v-for="(val) in menus">
             <el-sub-menu :index="`${val.path}`" v-if="(val.children?.length || 0) > 1">
                 <template #title>
                     <el-icon v-if="val.icon">
@@ -80,11 +80,19 @@ const activeIndex = ref(useRoute().fullPath)
             <el-menu-item :index="`${val.path}`" v-else>
                 <template #title> {{ val.name }}</template>
             </el-menu-item>
-        </div>
+        </template>
     </el-menu>
 </template>
 <style lang="scss" >
 .el-menu {
     border-right: 0;
+}
+
+.el-sub-menu .el-menu-item {
+    background-color: #1f2d3d;
+}
+
+.menu:not(.el-menu--collapse) {
+    width: 200px;
 }
 </style>

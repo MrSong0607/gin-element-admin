@@ -1,4 +1,5 @@
-import { ApiResponse, UserType, default as request } from './base'
+import { ApiResponse, UserType } from '../dto/base'
+import request from './base'
 
 export declare type SessionInfo = {
     id: number,

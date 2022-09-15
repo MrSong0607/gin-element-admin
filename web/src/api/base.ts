@@ -38,24 +38,3 @@ service.interceptors.request.use(config => {
 })
 
 export default service
-
-export declare type ApiResponse<T> = {
-    code: number;
-    msg: string;
-    data: T;
-}
-
-export declare type ArrayResonse<T> = {
-    list: T[],
-    count: number,
-}
-
-export declare type QueryBase = {
-    size: number,
-    page: number
-}
-
-export enum UserType {
-    customer = "customer",
-    admin = "admin",
-}

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { QueryBase } from '../../api/base';
+import { QueryBase } from '../../dto/base';
 import { ListUser } from '../../api/user';
 import Pagination from '../../components/Pagination.vue';
 import { timeFormat } from '../../utils/index';

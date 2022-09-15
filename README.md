@@ -11,7 +11,7 @@
 - [element-plus](https://github.com/element-plus/element-plus)
 - [pinia](https://github.com/vuejs/pinia)
 
-## [api](api/readme.md)
+## [后端](api/readme.md)
 ### 注册路由的方法:   
 `controllers/base.go`中定义了
 ```golang
@@ -90,4 +90,13 @@ const data = ref([])
         </el-table-column>
     </el-table>
 </template>
+```
+
+## 注意事项
+- 由于使用了vue router的WebHistory模式，所以nginx配置需要添加try_files命令，示例如下
+```nginx
+location / {
+        root /home/gin-element-admin/web;
+        try_files $uri $uri/ /index.html;
+    }
 ```

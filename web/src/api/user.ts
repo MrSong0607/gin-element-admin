@@ -1,4 +1,5 @@
-import { ApiResponse, ArrayResonse, default as request } from './base'
+import { ApiResponse, ArrayResonse, } from '../dto/base'
+import request from './base'
 
 export async function ListUser(params: any): Promise<ApiResponse<ArrayResonse<any>>> {
     let resp = await request({

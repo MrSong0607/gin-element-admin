@@ -2,10 +2,10 @@
 import { reactive } from 'vue';
 import imgurl from '../../assets/avatar.jpg';
 import { usePermissStore } from '../../store/permiss'
-import { UserType } from '../../api/base'
+import { UserType, UserTypeName } from '../../dto/base'
 
 const store = usePermissStore()
-const role: string = [UserType.admin,].includes(store.info?.user_type || UserType.channel) ? '管理员' : '客户';
+const role: string = UserTypeName(store.userType || UserType.customer);
 
 const todoList = reactive([
     {

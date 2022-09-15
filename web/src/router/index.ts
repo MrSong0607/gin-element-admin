@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import layout from '../components/Layout/index.vue';
-import { UserType } from '../api/base'
+import { UserType } from '../dto/base'
 
 const routes: RouteRecordRaw[] = [
     {
