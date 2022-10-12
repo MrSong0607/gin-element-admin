@@ -6,14 +6,13 @@ const collapse = ref(false)
 </script>
 <template>
     <el-container style="height: 100%">
-        <el-header height="50px" class="header">
-            <Header :collapse="collapse" @on-collapse="c=> collapse = c" />
-        </el-header>
-
+        <el-aside width="auto" class="aside">
+            <sidebar :collapse="collapse" />
+        </el-aside>
         <el-container>
-            <el-aside width="auto" class="aside">
-                <sidebar :collapse="collapse" />
-            </el-aside>
+            <el-header height="50px" class="header">
+                <Header :collapse="collapse" @on-collapse="c=> collapse = c" />
+            </el-header>
             <el-main>
                 <div class="content-box" :class="{ 'content-collapse': '' }">
                     <div class="content">

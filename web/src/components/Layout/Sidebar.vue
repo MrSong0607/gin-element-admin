@@ -59,6 +59,12 @@ const activeIndex = ref(useRoute().fullPath)
 <template>
     <el-menu class="menu" :router="true" :default-active="activeIndex" :val="props.collapse" :collapse="props.collapse"
         mode="vertical" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff">
+        <el-menu-item index="0" class="logo">
+            <el-icon v-if="props.collapse" :size="50">
+                <ElementPlus />
+            </el-icon>
+            <div v-else>演示系统</div>
+        </el-menu-item>
         <template v-for="(val) in menus">
             <el-sub-menu :index="`${val.path}`" v-if="(val.children?.length || 0) > 1">
                 <template #title>
@@ -72,13 +78,18 @@ const activeIndex = ref(useRoute().fullPath)
                 </el-menu-item>
             </el-sub-menu>
             <el-menu-item :index="warpRoute(val)" v-else-if="(val.children?.length || 0) == 1">
-                <el-icon v-if="val.children && val.children[0].icon">
-                    <component :is="val.children[0].icon"></component>
+                <el-icon v-if="val.icon">
+                    <component :is="val.icon"></component>
                 </el-icon>
                 <template #title> {{ val.children && val.children[0].name }}</template>
             </el-menu-item>
             <el-menu-item :index="`${val.path}`" v-else>
-                <template #title> {{ val.name }}</template>
+                <template #title>
+                    <el-icon v-if="val.icon">
+                        <component :is="val.icon"></component>
+                    </el-icon>
+                    <span>{{ val.name }}</span>
+                </template>
             </el-menu-item>
         </template>
     </el-menu>
@@ -94,5 +105,16 @@ const activeIndex = ref(useRoute().fullPath)
 
 .menu:not(.el-menu--collapse) {
     width: 200px;
+}
+
+.logo {
+    padding: 0;
+    justify-content: center;
+    background-color: #1f2d3d;
+    height: 50px;
+
+    .div {
+        width: 100%;
+    }
 }
 </style>

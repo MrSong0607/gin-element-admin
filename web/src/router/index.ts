@@ -11,12 +11,11 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/',
         component: layout,
+        meta: { icon: 'HomeFilled' },
         children: [
             {
                 name: '主页',
                 path: '/',
-                meta: {
-                },
                 component: () => import('../views/home/index.vue')
             }
         ]
@@ -25,11 +24,11 @@ const routes: RouteRecordRaw[] = [
         path: '/user',
         component: layout,
         name: '用户管理',
+        meta: { icon: 'User', role: [UserType.admin] },
         children: [
             {
                 name: '用户列表',
                 path: 'list',
-                meta: { icon: 'User', role: [UserType.admin] },
                 component: () => import('../views/user/index.vue')
             }
         ]

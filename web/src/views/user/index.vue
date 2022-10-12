@@ -35,7 +35,6 @@ onMounted(() => {
         <el-table-column prop="id" label="ID" width="80" />
         <el-table-column prop="alias" label="名称" min-width="80" show-overflow-tooltip />
         <el-table-column prop="acct" label="账号" min-width="80" show-overflow-tooltip />
-        <el-table-column prop="chn_code" label="推广码" min-width="150" show-overflow-tooltip />
         <el-table-column label="创建时间" width="130">
             <template #default="{ row }">
                 <span>{{ timeFormat(row.create_at) }}</span>
