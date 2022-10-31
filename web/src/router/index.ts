@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import layout from '../components/Layout/index.vue';
-import { UserType } from '../dto/base'
+import layout from '@/components/Layout/index.vue';
+import { UserType } from '@/dto/base' 
 
 const routes: RouteRecordRaw[] = [
     {
         path: '/login',
-        component: () => import('../views/login/index.vue'),
+        component: () => import('@/views/login/index.vue'),
         meta: { hidden: true }
     },
     {
@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
             {
                 name: '主页',
                 path: '/',
-                component: () => import('../views/home/index.vue')
+                component: () => import('@/views/home/index.vue')
             }
         ]
     },
@@ -29,7 +29,7 @@ const routes: RouteRecordRaw[] = [
             {
                 name: '用户列表',
                 path: 'list',
-                component: () => import('../views/user/index.vue')
+                component: () => import('@/views/user/index.vue')
             }
         ]
     },
@@ -41,7 +41,7 @@ const routes: RouteRecordRaw[] = [
             {
                 name: "个人信息",
                 path: "index",
-                component: () => import('../views/profile/index.vue')
+                component: () => import('@/views/profile/index.vue')
             }
         ]
     }

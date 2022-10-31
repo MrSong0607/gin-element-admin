@@ -3,7 +3,7 @@ import router from './index'
 
 const whiteList = ['/login']
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
     const store = usePermissStore()
 
     // console.log(to.fullPath, store.isLogined)
@@ -16,7 +16,7 @@ router.beforeEach((to, from, next) => {
         return
     }
 
-    store.getAccountInfo()
+   await store.getAccountInfo()
 
     if (to.path === '/login') {
         next({ path: '/' })

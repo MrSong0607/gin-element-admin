@@ -39,6 +39,8 @@ routes.forEach(t => {
         }
 
         menus.push(m)
+    } else {
+        // console.log('ignore', t, permiss.hasPermission(...((t.meta?.role || []) as UserType[])))
     }
 })
 
@@ -54,16 +56,16 @@ const warpRoute = (item: MenuItem) => {
 }
 
 const activeIndex = ref(useRoute().fullPath)
-// console.log(menus)
+// console.log(routes, menus)
 </script>
 <template>
     <el-menu class="menu" :router="true" :default-active="activeIndex" :val="props.collapse" :collapse="props.collapse"
         mode="vertical" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff">
-        <el-menu-item index="0" class="logo">
+        <el-menu-item index="/" class="logo">
             <el-icon v-if="props.collapse" :size="50">
                 <ElementPlus />
             </el-icon>
-            <div v-else>演示系统</div>
+            <div v-else style="color: white;">演示系统</div>
         </el-menu-item>
         <template v-for="(val) in menus">
             <el-sub-menu :index="`${val.path}`" v-if="(val.children?.length || 0) > 1">
@@ -73,8 +75,7 @@ const activeIndex = ref(useRoute().fullPath)
                     </el-icon>
                     <span>{{ val.name }}</span>
                 </template>
-                <el-menu-item v-for="(sub) in val.children" :path="`${val.path}/${sub.path}`"
-                    :index="build_path(val.path, sub.path)">{{ sub.name }}
+                <el-menu-item v-for="(sub) in val.children" :index="build_path(val.path, sub.path)">{{ sub.name }}
                 </el-menu-item>
             </el-sub-menu>
             <el-menu-item :index="warpRoute(val)" v-else-if="(val.children?.length || 0) == 1">
@@ -114,7 +115,7 @@ const activeIndex = ref(useRoute().fullPath)
     height: 50px;
 
     .div {
-        width: 100%;
+        width: 100%;        
     }
 }
 </style>

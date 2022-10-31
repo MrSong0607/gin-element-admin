@@ -11,11 +11,18 @@ export const usePermissStore = defineStore('permiss', {
         if (str) {
             ss.sessionKey = str
         }
+        // console.log(ss)
         return ss
     },
     getters: {
-        isLogined: (state): boolean => state.sessionKey != null,
-        userType: (state): UserType | null => state.info?.user_type || null,
+        isLogined: (state): boolean => {
+            // console.log(state.sessionKey)
+            return state.sessionKey != null
+        },
+        userType: (state): UserType | null => {
+            // console.log(state.info)
+            return state.info?.user_type || null
+        },
         isAdmin: (state): boolean => state.info?.user_type == UserType.admin
     },
     actions: {
@@ -40,6 +47,7 @@ export const usePermissStore = defineStore('permiss', {
         },
         hasPermission(...userType: UserType[]): boolean {
             if (!this.isLogined || !this.userType) {
+                // console.log(this.isLogined, this.userType)
                 return false
             }
 

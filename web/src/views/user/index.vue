@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { QueryBase } from '../../dto/base';
-import { ListUser } from '../../api/user';
-import Pagination from '../../components/Pagination.vue';
-import { timeFormat } from '../../utils/index';
+import { QueryBase } from '@/dto/base';
+import { ListUser } from '@/api/user';
+import Pagination from '@/components/Pagination.vue';
+import { timeFormat } from '@/utils/index';
 import newUser from './components/newUser.vue';
 
 const data = ref<any[]>([])

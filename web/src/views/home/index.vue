@@ -1,8 +1,8 @@
 <script setup lang="ts" name="dashboard">
 import { reactive } from 'vue';
-import imgurl from '../../assets/avatar.jpg';
-import { usePermissStore } from '../../store/permiss'
-import { UserType, UserTypeName } from '../../dto/base'
+import imgurl from '@/assets/avatar.jpg';
+import { usePermissStore } from '@/store/permiss'
+import { UserType, UserTypeName } from '@/dto/base'
 
 const store = usePermissStore()
 const role: string = UserTypeName(store.userType || UserType.customer);

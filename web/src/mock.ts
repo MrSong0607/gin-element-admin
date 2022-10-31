@@ -1,5 +1,7 @@
 import mock from 'mockjs'
 
+mock.setup({timeout:'20-200'})
+
 mock.mock(/auth\/login/, {
     code: 2000,
     msg: '',
