@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { FormRules, ElMessage, FormInstance } from 'element-plus'
-import { UserInfo, UpdateInfo } from '../../../api/auth'
-import { usePermissStore } from '../../../store/permiss'
+import { UserInfo, UpdateInfo } from '@/api/auth'
+import { usePermissStore } from '@/store/permiss'
 
 const formRef = ref<FormInstance>()
 const store = usePermissStore()

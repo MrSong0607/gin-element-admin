@@ -27,7 +27,7 @@ const routes: RouteRecordRaw[] = [
         meta: { icon: 'User', role: [UserType.admin] },
         children: [
             {
-                name: '用户列表',
+                name: '列表',
                 path: 'list',
                 component: () => import('@/views/user/index.vue')
             }

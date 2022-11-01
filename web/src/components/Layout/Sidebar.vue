@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { routes } from '../../router/index';
-import { usePermissStore } from '../../store/permiss';
-import { build_path } from '../../utils/index';
-import { UserType } from '../../dto/base'
+import { routes } from '@/router/index';
+import { usePermissStore } from '@/store/permiss';
+import { build_path } from '@/utils/index';
+import { UserType } from '@/dto/base'
 
 const permiss = usePermissStore()
 const props = defineProps<{ collapse: boolean }>()
@@ -65,7 +65,7 @@ const activeIndex = ref(useRoute().fullPath)
             <el-icon v-if="props.collapse" :size="50">
                 <ElementPlus />
             </el-icon>
-            <div v-else style="color: white;">演示系统</div>
+            <div v-else style="color: white;font-weight: bold;">演示系统</div>
         </el-menu-item>
         <template v-for="(val) in menus">
             <el-sub-menu :index="`${val.path}`" v-if="(val.children?.length || 0) > 1">

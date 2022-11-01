@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { SecurityInfo, Security } from '../../../api/auth'
+import { SecurityInfo, Security } from '@/api/auth'
 import { FormRules, FormInstance, ElMessage } from 'element-plus'
 
 const passwdValidate = (rule: any, value: any, callback: any) => {

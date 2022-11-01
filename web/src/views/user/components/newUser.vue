@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { FormInstance, FormRules } from 'element-plus';
-import { CreateUser } from '../../../api/user';
+import { CreateUser } from '@/api/user';
 import {ElMessage} from 'element-plus'
 
 type CreateUserForm = {

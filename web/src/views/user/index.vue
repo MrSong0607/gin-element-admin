@@ -9,11 +9,18 @@ const data = ref<any[]>([])
 const query = ref<QueryBase & { acct?: string }>({ size: 20, page: 1, })
 const total = ref(0)
 const showCreate = ref(false)
+const loading = ref(false)
 
 const fetchData = async () => {
-    const { data: res } = await ListUser(query.value)
-    data.value = res.list
-    total.value = res.count
+    loading.value = true
+    try {
+        const { data: res } = await ListUser(query.value)
+        data.value = res.list
+        total.value = res.count
+    }
+    finally {
+        loading.value = false
+    }
 }
 
 onMounted(() => {
@@ -26,12 +33,12 @@ onMounted(() => {
             <el-input v-model="query.acct" placeholder="账号" clearable />
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="fetchData">查询</el-button>
+            <el-button type="primary" @click="fetchData" :loading="loading">查询</el-button>
             <el-button type="primary" @click="showCreate = true">创建</el-button>
         </el-form-item>
     </el-form>
 
-    <el-table :data="data" size="small" stripe border>
+    <el-table :data="data" size="small" v-loading="loading" stripe border>
         <el-table-column prop="id" label="ID" width="80" />
         <el-table-column prop="alias" label="名称" min-width="80" show-overflow-tooltip />
         <el-table-column prop="acct" label="账号" min-width="80" show-overflow-tooltip />
@@ -40,7 +47,11 @@ onMounted(() => {
                 <span>{{ timeFormat(row.create_at) }}</span>
             </template>
         </el-table-column>
-        <el-table-column label="操作" min-width="100" />
+        <el-table-column label="操作" min-width="100">
+            <template #default="{ row }">
+                <el-button size="small" plain>编辑</el-button>
+            </template>
+        </el-table-column>
     </el-table>
     <Pagination v-model:page-size="query.size" v-model:current-page="query.page" :total="total" @fetch="fetchData" />
 
