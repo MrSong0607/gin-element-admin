@@ -60,12 +60,12 @@ const activeIndex = ref(useRoute().fullPath)
 </script>
 <template>
     <el-menu class="menu" :router="true" :default-active="activeIndex" :val="props.collapse" :collapse="props.collapse"
-        mode="vertical" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff">
+        mode="vertical">
         <el-menu-item index="/" class="logo">
             <el-icon v-if="props.collapse" :size="50">
                 <ElementPlus />
             </el-icon>
-            <div v-else style="color: white;font-weight: bold;">演示系统</div>
+            <div v-else style="font-weight: bold;">演示系统</div>
         </el-menu-item>
         <template v-for="(val) in menus">
             <el-sub-menu :index="`${val.path}`" v-if="(val.children?.length || 0) > 1">
@@ -100,22 +100,17 @@ const activeIndex = ref(useRoute().fullPath)
     border-right: 0;
 }
 
-.el-sub-menu .el-menu-item {
-    background-color: #1f2d3d;
-}
-
 .menu:not(.el-menu--collapse) {
     width: 200px;
 }
 
 .logo {
-    padding: 0;
     justify-content: center;
-    background-color: #1f2d3d;
     height: 50px;
+    border-bottom: solid 1px var(--el-border-color);
 
     .div {
-        width: 100%;        
+        width: 100%;
     }
 }
 </style>

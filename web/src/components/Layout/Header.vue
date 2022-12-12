@@ -1,9 +1,13 @@
 <script lang="ts" setup>
 import { usePermissStore } from '../../store/permiss';
+import { Moon, Sunny } from '@element-plus/icons-vue'
+import { useDark } from '@vueuse/core'
+
 const store = usePermissStore()
 const props = defineProps<{ collapse: boolean }>()
 const emit = defineEmits<{ (e: 'onCollapse', collapse: boolean): void }>()
 const route = useRoute()
+const isDark = useDark()
 
 const paths = computed(() => {
     return route.matched
@@ -29,6 +33,8 @@ const logout = () => {
         <el-breadcrumb-item v-for="val in paths">{{ val.name }}</el-breadcrumb-item>
     </el-breadcrumb>
     <div class="right">
+        <el-switch v-model="isDark" style="margin: 0 10px;--el-switch-on-color:var(--el-border-color)" inline-prompt
+            :active-icon="Moon" :inactive-icon="Sunny" />
         <el-dropdown>
             <span class="dropdown-link">
                 {{ store.info?.alias }}
@@ -51,14 +57,6 @@ const logout = () => {
 </template>
 
 <style lang="scss" scoped>
-.header {
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    box-shadow: 0 1px 4px rgb(0 21 41 / 8%)
-}
-
 .collapse {
     font-size: 1.3rem;
     padding: 17px 20px;
@@ -74,5 +72,7 @@ const logout = () => {
     order: 2;
     padding: 20px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 </style>

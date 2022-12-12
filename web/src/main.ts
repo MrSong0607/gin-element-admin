@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import './router/permission'
 import './style.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import './mock' //正式环境删除此行
 
 const app = createApp(App).use(createPinia()).use(router)

@@ -11,7 +11,7 @@ const collapse = ref(false)
         </el-aside>
         <el-container>
             <el-header height="50px" class="header">
-                <Header :collapse="collapse" @on-collapse="c=> collapse = c" />
+                <Header :collapse="collapse" @on-collapse="c => collapse = c" />
             </el-header>
             <el-main>
                 <div class="content-box" :class="{ 'content-collapse': '' }">
@@ -39,11 +39,10 @@ const collapse = ref(false)
 <style lang="scss" scoped>
 .aside {
     background: fixed;
-    background-color: #324157;
+    border-right: 1px solid var(--el-border-color)
 }
 
 .header {
-    background-color: #ffffff;
     display: flex;
     align-items: center;
     padding: 0;
